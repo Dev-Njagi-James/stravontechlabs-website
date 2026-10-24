@@ -1,0 +1,128 @@
+.ihp {
+   width: 94%;
+   max-width: 1200px;
+   margin: 0 auto;
+   padding: 1rem 0 0;
+   padding-inline: 54px;
+}
+
+.ihp-eyebrow {
+   font-size: 0.7rem;
+   font-weight: 600;
+   text-decoration: underline;
+   text-underline-offset: 4px;
+   margin-bottom: 1.25rem;
+}
+
+.ihp-card {
+   border-radius: 1rem;
+   border: 1px solid rgba(0, 0, 0, 0.08);
+   padding: 2rem;
+   background-color: #F1F1F1;
+   display: flex;
+   gap: 1.25rem;
+   line-height: 1.2;
+   flex-direction: column;
+}
+
+.ihp-title {
+   font-size: 16px;
+   font-weight: 700;
+   line-height: 1.25;
+}
+
+.ihp-subtitle {
+   font-size: 0.8rem;
+   font-weight: 500;
+}
+
+.ihp-body p {
+   font-size: 0.78rem;
+   line-height: 1.6;
+   font-weight:450;
+}
+
+.ihp-body strong {
+   font-weight: 700;
+}
+
+.ihp-callout {
+   font-size: 1rem;
+   font-weight: 700;
+}
+
+.ihp-actions {
+   display: flex;
+   flex-wrap: wrap;
+   gap: 1rem;
+}
+
+.ihp-btn {
+   display: inline-flex;
+   align-items: center;
+   gap: 0.5rem;
+   padding: 0.75rem 1.25rem;
+   border-radius: 10px;
+   background-color: var(--secondary);
+   color: #000;
+   font-size: 0.8rem;
+   font-weight: 640;
+   text-decoration: none;
+   transition: background-color 0.2s ease;
+}
+
+.ihp-btn:hover {
+   background-color: var(--accent);
+}
+
+.ihp-subheading {
+   font-size: 1.5rem;
+   font-weight: 700;
+}
+
+.ihp-repo-text {
+   font-size: 0.9375rem;
+   line-height: 1.6;
+}
+
+.ihp-repo-actions {
+   display: flex;
+   flex-wrap: wrap;
+   gap: 1rem;
+}
+
+.ihp-repo-btn {
+   display: inline-flex;
+   align-items: center;
+   gap: 0.6rem;
+   padding: 0.75rem 1.25rem;
+   border-radius: 10px;
+   background-color: var(--secondary);
+   color: #000;
+   font-size: 0.8rem;
+   font-weight: 700;
+   text-decoration: none;
+   transition: background-color 0.2s ease;
+}
+
+.ihp-repo-btn:hover {
+   background-color: var(--accent);
+}
+
+@media (max-width: 768px) {
+   .ihp {
+      padding-inline: 32px;
+   }
+}
+
+@media (max-width: 600px) {
+   .ihp {
+      padding-inline: 20px;
+   }
+}
+
+@media (min-width: 640px) {
+   .ihp-title {
+      font-size: 2.25rem;
+   }
+}
