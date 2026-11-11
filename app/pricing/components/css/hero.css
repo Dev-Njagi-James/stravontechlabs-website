@@ -97,7 +97,7 @@
    margin: 0;
    font-family: var(--font-inter);
    font-size: clamp(15px, 1.2vw, 17px);
-      line-height: 1.6;
+   line-height: 1.6;
 }
 
 .stravon-visual {
@@ -474,12 +474,16 @@
 
 /* Tablet: 641–1023px — copy first, collage centered underneath. */
 @media (min-width: 641px) and (max-width: 1023px) {
+   .stravon-landing{
+      padding-inline:38px;
+   }
    .stravon-hero {
-      width: min(86%, 740px);
+      width: min(78%, 740px);
       grid-template-columns: minmax(0, 1fr);
       gap: 28px;
-      padding: 54px 0 64px;
+      padding: 54px 0 54px;
    }
+
 
    .stravon-hero__copy {
       max-width: 700px;
@@ -515,7 +519,10 @@
 }
 
 /* Mobile: 640px and below — compact copy, then smaller overlapping previews. */
-@media (max-width: 640px) {
+@media (max-width: 600px) {
+    .stravon-landing{
+      padding-inline:21px;
+   }
    .stravon-hero {
       width: 88%;
       grid-template-columns: minmax(0, 1fr);
