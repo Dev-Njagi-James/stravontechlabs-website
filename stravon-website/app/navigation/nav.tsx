@@ -6,11 +6,32 @@ import { usePathname } from "next/navigation";
 import { useState } from "react";
 import "./css/nav.css";
 
-const NAV_LINKS = [
+/** Contact number in international format, digits only (no + or spaces). */
+const CONTACT_NUMBER = "254105140326";
+
+const whatsappLink = (message: string): string =>
+  `https://wa.me/${CONTACT_NUMBER}?text=${encodeURIComponent(message)}`;
+
+const CONSULTATION_URL = whatsappLink(
+  "Hello Stravon Tech Labs, I'd like to book a consultation.",
+);
+
+interface NavLink {
+  label: string;
+  href: string;
+  external?: boolean;
+}
+
+const NAV_LINKS: NavLink[] = [
+
   { label: "Services", href: "/" },
   { label: "Pricing", href: "/pricing" },
   { label: "About", href: "/about" },
-  { label: "Contact", href: "/contact" },
+    {
+    label: "Contact",
+    href: whatsappLink("Hello Stravon Tech Labs, I'd like to get in touch."),
+    external: true,
+  },
 ];
 
 export default function Navbar() {
@@ -34,20 +55,30 @@ export default function Navbar() {
         </Link>
 
         <nav className="navbar-links">
-          {NAV_LINKS.map(({ label, href }) => {
-            const isActive = pathname === href;
-            return (
-              <Link
-                key={href}
+ {NAV_LINKS.map(({ label, href, external }) => {
+           const className = `navbar-link ${pathname === href ? "active" : ""}`;
+            return external ? (
+              <a
+                key={label}
                 href={href}
-                className={`navbar-link ${isActive ? "active" : ""}`}>
+               target="_blank"
+               rel="noopener noreferrer"
+                className={className}>
+                {label}
+              </a>
+            ) : (
+              <Link key={label} href={href} className={className}>
                 {label}
               </Link>
             );
           })}
         </nav>
 
-        <Link href="/contact" className="navbar-cta">
+                <a
+          href={CONSULTATION_URL}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="navbar-cta">
           Book Consultation
           <svg
             width="14"
@@ -62,7 +93,7 @@ export default function Navbar() {
             <line x1="7" y1="17" x2="17" y2="7" />
             <polyline points="7 7 17 7 17 17" />
           </svg>
-        </Link>
+         </a>
 
         <button
           type="button"
@@ -102,21 +133,33 @@ export default function Navbar() {
             <i className="hgi hgi-stroke hgi-rounded hgi-cancel-01" />
           </button>
         </div>
-        {NAV_LINKS.map(({ label, href }) => {
-          const isActive = pathname === href;
-          return (
+        {NAV_LINKS.map(({ label, href, external }) => {
+          const className = `navbar-link ${pathname === href ? "active" : ""}`;
+          return external ? (
+            <a
+              key={label}
+              href={href}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => setIsOpen(false)}
+              className={className}>
+              {label}
+            </a>
+          ) : (
             <Link
-              key={href}
+              key={label}
               href={href}
               onClick={() => setIsOpen(false)}
-              className={`navbar-link ${isActive ? "active" : ""}`}>
+              className={className}>
               {label}
             </Link>
           );
         })}
 
-        <Link
-          href="/contact"
+        <a
+          href={CONSULTATION_URL}
+          target="_blank"
+          rel="noopener noreferrer"
           onClick={() => setIsOpen(false)}
           className="navbar-cta navbar-mobile-cta">
           Book Consultation
@@ -133,7 +176,7 @@ export default function Navbar() {
             <line x1="7" y1="17" x2="17" y2="7" />
             <polyline points="7 7 17 7 17 17" />
           </svg>
-        </Link>
+       </a>
       </nav>
     </header>
   );

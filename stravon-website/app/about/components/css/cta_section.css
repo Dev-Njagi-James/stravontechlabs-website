@@ -1,0 +1,123 @@
+.cta-section {
+   position: relative;
+   isolation: isolate;
+   padding-inline: 54px;
+   display: grid;
+   grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+   align-items: center;
+   justify-items: center;
+   column-gap: 48px;
+   width: 90%;
+   margin: 0 auto 10px;
+   overflow: hidden;
+   box-sizing: border-box;
+}
+
+.cta-content {
+   z-index: 1;
+   width: 100%;
+   max-width: 430px;
+   justify-self: end;
+}
+
+.cta-eyebrow {
+   display: inline-block;
+   font-family: var(--font-inter);
+   font-weight: 600;
+   margin-bottom: 12px;
+   color: inherit;
+   font-size: 12px;
+   line-height: 1;
+   text-decoration: none;
+   border-bottom: 1px solid currentColor;
+   padding-bottom: 2px;
+}
+
+.cta-content h1 {
+   margin: 0 0 18px;
+   font-size: clamp(25px, 3.05vw, 27px);
+   font-weight: 700;
+   letter-spacing: -0.7px;
+   font-family: var(--font-geist-sans);
+   line-height: 1.24;
+}
+
+.cta-description {
+   max-width: 410px;
+   font-family: var(--font-inter);
+   margin: 0;
+   font-size: 14px;
+   line-height: 1.72;
+   letter-spacing: 0.04px;
+}
+
+.cta-actions {
+   display: flex;
+   flex-wrap: wrap;
+   gap: 12px;
+   margin-top: 18px;
+}
+
+.cta-button {
+   display: inline-flex;
+   align-items: center;
+   justify-content: center;
+   gap: 7px;
+   min-height: 36px;
+   padding: 0 7px;
+   border: 1px solid #e4d68e;
+   font-family: var(--font-geist-sans);
+   letter-spacing: -0.2px;
+   font-weight: 600;
+   border-radius: 6px;
+   background: var(--secondary);
+   box-shadow: 0 2px 4px rgb(0 0 0 / 18%);
+   color: #111;
+   font-size: 14px;
+   white-space: nowrap;
+   transition: transform 160ms ease, box-shadow 160ms ease;
+}
+
+.cta-button:hover {
+   transform: translateY(-2px);
+   box-shadow: 0 4px 8px rgb(0 0 0 / 20%);
+}
+
+.cta-visual {
+   pointer-events: none;
+   justify-self: start;
+   width: 70%;
+   display: flex;
+   justify-content: center;
+}
+
+.cta-visual img {
+   display: block;
+   width: 100%;
+   max-width: 440px;
+   height: auto;
+}
+
+@media (max-width: 680px) {
+   .cta-section {
+      grid-template-columns: 1fr;
+      min-height: 0;
+      width:94%;
+   }
+
+   .cta-content {
+      max-width: 100%;
+   }
+
+   .cta-content h1 {
+      font-size: clamp(26px, 7vw, 34px);
+   }
+
+   .cta-description {
+      font-size: 14px;
+   }
+
+   .cta-visual {
+      display: none;
+   }
+}

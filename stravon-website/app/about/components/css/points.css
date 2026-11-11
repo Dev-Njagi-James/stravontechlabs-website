@@ -1,0 +1,231 @@
+.page-shell {
+   width: 90%;
+   margin: 0 auto;
+   padding-inline: 54px;
+}
+
+.solutions {
+   width: 100%;
+}
+
+.eyebrow-link {
+   display: inline-block;
+   font-size: 12px;
+   line-height: 17px;
+   text-decoration: underline;
+   text-underline-offset: 2px;
+   font-weight: 700;
+   font-family: var(--font-inter);
+}
+
+.eyebrow-link span {
+   text-decoration: none;
+}
+
+.solutions h1 {
+   margin: 4px 0 8px;
+   font-size: 28px;
+   font-weight: 700;
+   line-height: 1.13;
+   letter-spacing: 0.05px;
+   font-family: var(--font-geist-sans);
+}
+
+.intro {
+   margin: 0;
+   font-size: 14px;
+   line-height: 22px;
+   letter-spacing: 0.05px;
+   font-family: var(--font-inter);
+}
+
+.solutions-grid {
+   display: grid;
+   grid-template-columns: repeat(auto-fit, 210px);
+   justify-content: start;
+   gap: 16px 24px;
+   margin: 14px 0 0 5px;
+   width: calc(95% - 5px);
+}
+
+.solution-card {
+   display: flex;
+   min-width: 0;
+   flex-direction: column;
+   border: 1px solid #c9c5a9;
+   border-radius: 7px;
+   padding: 0 2px 0;
+   background: #f5f3e7;
+   box-shadow: 0 2px 3px rgb(32 33 36 / 24%);
+}
+
+.solution-card__preview {
+   display: block;
+   flex: 0 0 132px;
+   width: 100%;
+   height: 132px;
+   object-fit: fill;
+   border-bottom: 1px solid #d4d1c2;
+   background: #fff;
+}
+
+.solution-card__content {
+   display: flex;
+   flex: 1;
+   gap: 8px;
+   min-height: 0;
+   flex-direction: column;
+   padding: 5px 6px 7px;
+}
+
+.solution-card h2 {
+   margin: 0 0 4px;
+   font-family: var(--font-geist-sans);
+   font-size: 14px;
+   color:black;
+   letter-spacing: -0.7px;
+   font-weight: 600;
+   line-height: 18px;
+}
+
+.solution-card p {
+   margin: 0;
+   font-size: 12px;
+   font-family: var(--font-inter);
+   line-height: 17px;
+}
+
+.solution-card a {
+   width: fit-content;
+   margin-top: auto;
+   font-weight: 500;
+   font-size: 12px;
+   font-family: var(--font-geist-sans);
+   line-height: 16px;
+   text-underline-offset: 2px;
+}
+
+.solution-card__preview {
+   position: relative;
+   aspect-ratio: 16 / 10;
+}
+
+.solution-card__preview img {
+   object-fit: cover;
+}
+
+.why-choose {
+   padding-inline: 54px;
+   width: 90%;
+   margin: 0 auto;
+   padding-top: 20px;
+   padding-bottom: 10px;
+}
+
+#why-choose-title {
+   margin: 4px 0 8px;
+   font-size: 28px;
+   font-weight: 700;
+   line-height: 1.13;
+   letter-spacing: 0.05px;
+   font-family: var(--font-geist-sans);
+}
+
+.reasons-grid {
+   display: grid;
+   gap: 24px;
+   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+   justify-content: start;
+   gap: 16px 24px;
+   margin: 14px 0 0 5px;
+}
+
+.reason-card {
+   display: flex;
+   min-width: 0;
+   height: auto;
+   gap: 10px;
+   flex-direction: column;
+   padding: 14px 8px 9px;
+   border: 1px solid #40545a;
+   border-radius: 10px;
+   background: #f5f3e7;
+   box-shadow: 0 2px 3px rgb(32 33 36 / 18%);
+}
+
+.reason-card__icon i {
+   font-size: 38px;
+   line-height: 1;
+}
+
+article h3 {
+   font-family: var(--font-geist-sans);
+   font-weight: 600;
+}
+
+article p {
+   margin: 0;
+   font-size: 12px;
+   font-family: var(--font-inter);
+}
+
+@media (max-width: 980px) {
+   .solutions-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+   }
+}
+
+@media (max-width: 780px) {
+   .solutions-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      margin-left: 0;
+      width: 100%;
+      gap: 16px;
+   }
+}
+@media (max-width: 690px) {
+   .solutions h1 {
+      font-size: clamp(25px, 6vw, 28px);
+   }
+
+   .solutions-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      margin-left: 0;
+      width: 100%;
+      gap: 16px;
+   }
+
+   .reasons-grid {
+      margin: 14px 0 0 0;
+   }
+}
+
+@media (max-width: 600px) {
+
+   .page-shell,
+   .why-choose {
+      padding-inline: 32px;
+   }
+}
+
+@media (max-width: 440px) {
+
+   .page-shell,
+   .why-choose {
+      padding-inline: 24px;
+   }
+
+   .solutions-grid {
+      grid-template-columns: 1fr;
+      grid-auto-rows: auto;
+   }
+
+   .solution-card__preview {
+      flex-basis: 140px;
+      height: 140px;
+   }
+
+   .why-choose__intro {
+      font-size: 14px;
+   }
+}

@@ -27,7 +27,7 @@
    font-size: 28px;
    font-weight: 700;
    line-height: 1.13;
-   letter-spacing: 0.05px;
+   letter-spacing: -0.7px;
    font-family: var(--font-geist-sans);
 }
 
@@ -125,7 +125,7 @@
    font-size: 28px;
    font-weight: 700;
    line-height: 1.13;
-   letter-spacing: 0.05px;
+   letter-spacing: -0.5px;
    font-family: var(--font-geist-sans);
 }
 

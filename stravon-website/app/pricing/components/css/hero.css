@@ -1,0 +1,669 @@
+.stravon-landing {
+   --stravon-paper: #f5f3e9;
+   --stravon-ink: #171816;
+   --stravon-gold: var(--accent);
+   --stravon-line: #dedbcf;
+   position: relative;
+   isolation: isolate;
+   display: flex;
+   width: 90%;
+   margin: 0 auto;
+   padding-inline: 50px;
+   min-height: 80svh;
+   flex-direction: column;
+   overflow: hidden;
+   color: var(--stravon-ink);
+   background: var(--stravon-paper);
+
+}
+
+
+/* Mirrored transparent patterns gather on the left and fade before the text. */
+.stravon-landing::before,
+.stravon-landing::after {
+   position: absolute;
+   z-index: 0;
+   inset: 0 auto 0 0;
+   width: 52%;
+   background-repeat: no-repeat;
+   background-position: right center;
+   background-size: cover;
+   content: "";
+   pointer-events: none;
+   transform: scaleX(-1);
+   transform-origin: center;
+}
+
+.stravon-landing::before {
+   background-image: url("/hero-tech-pattern-network.png");
+   opacity: .24;
+}
+
+.stravon-landing::after {
+   background-image: url("/hero-tech-pattern-circuit.png");
+   opacity: .16;
+}
+
+.stravon-hero {
+   position: relative;
+   z-index: 1;
+   display: grid;
+   width: min(96%, 1310px);
+   flex: 1;
+   grid-template-columns: minmax(0, 1.03fr) minmax(0, .97fr);
+   align-items: center;
+   gap: clamp(34px, 4.5vw, 72px);
+   margin: 0 auto;
+   padding: 78px 0;
+}
+
+.stravon-hero__copy {
+   max-width: 650px;
+}
+
+.stravon-eyebrow {
+   display: inline-flex;
+   align-items: center;
+   font-family: var(--font-geist-mono);
+   gap: 9px;
+   margin: 0 0 17px;
+   color: #64645c;
+   font-size: 9px;
+   font-weight: 750;
+   letter-spacing: .13em;
+   text-transform: uppercase;
+}
+
+.stravon-eyebrow::before {
+   width: 21px;
+   height: 2px;
+   background: var(--stravon-gold);
+   content: "";
+   letter-spacing: -.07em;
+}
+
+.stravon-hero__copy h1 {
+   max-width: 650px;
+   margin: 0 0 17px;
+   font-size: clamp(30px, 3.2vw, 44px);
+   font-family: var(--font-geist-sans);
+   font-weight: 600;
+   letter-spacing: -.04em;
+   line-height: 1.08;
+}
+
+.stravon-hero__description {
+   max-width: 590px;
+   margin: 0;
+   font-family: var(--font-inter);
+   font-size: clamp(15px, 1.2vw, 17px);
+      line-height: 1.6;
+}
+
+.stravon-visual {
+   position: relative;
+   width: 100%;
+   max-width: 635px;
+   aspect-ratio: 1.23 / 1;
+   justify-self: end;
+   isolation: isolate;
+}
+
+.stravon-visual::before {
+   position: absolute;
+   z-index: -1;
+   inset: 8% 1% 4% 5%;
+   border: 1px solid rgba(190, 169, 72, .22);
+   border-radius: 50%;
+   background: radial-gradient(ellipse at center, rgba(220, 204, 127, .13), transparent 68%);
+   content: "";
+}
+
+.stravon-visual__connector {
+   position: absolute;
+   z-index: -1;
+   height: 1px;
+   background: linear-gradient(90deg, transparent, rgba(161, 136, 30, .56), transparent);
+   transform-origin: left center;
+}
+
+.stravon-visual__connector--one {
+   top: 32%;
+   left: 22%;
+   width: 58%;
+   transform: rotate(17deg);
+}
+
+.stravon-visual__connector--two {
+   top: 56%;
+   left: 27%;
+   width: 59%;
+   transform: rotate(-15deg);
+}
+
+.stravon-visual__badge {
+   position: absolute;
+   z-index: 5;
+   top: 14%;
+   right: 3%;
+   display: inline-flex;
+   align-items: center;
+   gap: 8px;
+   padding: 8px 11px;
+   border: 1px solid rgba(42, 43, 36, .12);
+   border-radius: 99px;
+   background: rgba(255, 254, 249, .96);
+   box-shadow: 0 8px 18px rgba(37, 35, 25, .09);
+   font-size: 8px;
+   font-weight: 700;
+   letter-spacing: .07em;
+   text-transform: uppercase;
+   white-space: nowrap;
+}
+
+.stravon-visual__badge i {
+   width: 7px;
+   height: 7px;
+   border-radius: 50%;
+   background: #779270;
+   box-shadow: 0 0 0 3px #e5eee0;
+}
+
+.stravon-system-card {
+   position: absolute;
+   overflow: hidden;
+   border: 1px solid rgba(40, 41, 34, .15);
+   border-radius: 12px;
+   background: #fffef9;
+   box-shadow: 0 20px 45px rgba(37, 35, 25, .13), 0 3px 10px rgba(37, 35, 25, .06);
+}
+
+.stravon-system-card--crm {
+   z-index: 1;
+   top: 4%;
+   left: 0;
+   width: 49%;
+   transform: rotate(-5deg);
+}
+
+.stravon-system-card--operations {
+   z-index: 3;
+   top: 25%;
+   left: 21%;
+   width: 63%;
+   transform: rotate(1.5deg);
+}
+
+.stravon-system-card--analytics {
+   z-index: 2;
+   right: 0;
+   bottom: 3%;
+   width: 51%;
+   transform: rotate(4deg);
+}
+
+.stravon-system-card__chrome {
+   display: flex;
+   height: 29px;
+   align-items: center;
+   gap: 5px;
+   padding: 0 9px;
+   border-bottom: 1px solid #e9e7df;
+   background: #fcfbf7;
+}
+
+.stravon-system-card__chrome>i {
+   width: 6px;
+   height: 6px;
+   border-radius: 50%;
+   background: #ccc9bd;
+}
+
+.stravon-system-card__chrome>span:first-of-type {
+   overflow: hidden;
+   margin-left: 6px;
+   color: #77786f;
+   font-size: 7px;
+   font-weight: 700;
+   letter-spacing: .07em;
+   text-overflow: ellipsis;
+   text-transform: uppercase;
+   white-space: nowrap;
+}
+
+.stravon-system-card__play {
+   display: grid;
+   width: 24px;
+   height: 24px;
+   flex: 0 0 auto;
+   place-items: center;
+   margin-left: auto;
+   color: #24251f;
+   border: 1px solid rgba(27, 28, 24, .35);
+   border-radius: 50%;
+   background: rgba(255, 254, 249, .88);
+   font-size: 8px;
+}
+
+.stravon-system-card__content {
+   min-height: 115px;
+   background: #fffef9;
+}
+
+.stravon-system-card__content>img,
+.stravon-system-card__content>video {
+   display: block;
+   width: 100%;
+   height: 100%;
+   min-height: 145px;
+   object-fit: cover;
+}
+
+.stravon-system-card--operations .stravon-system-card__content>img,
+.stravon-system-card--operations .stravon-system-card__content>video {
+   min-height: 205px;
+}
+
+.stravon-screen {
+   padding: 11px 12px 13px;
+   color: #373830;
+}
+
+.stravon-screen__title {
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+   gap: 6px;
+   margin-bottom: 9px;
+   font-size: 10px;
+   font-weight: 700;
+}
+
+.stravon-screen__title>span {
+   padding: 4px 6px;
+   color: #615522;
+   border-radius: 99px;
+   background: #f3eab9;
+   font-size: 6px;
+   letter-spacing: .04em;
+}
+
+.stravon-screen__person {
+   display: grid;
+   grid-template-columns: 19px 1fr auto;
+   align-items: center;
+   gap: 7px;
+   padding: 6px 0;
+   border-top: 1px solid #efeee8;
+}
+
+.stravon-screen__person>i {
+   width: 17px;
+   height: 17px;
+   border-radius: 50%;
+}
+
+.stravon-screen__person>div {
+   display: grid;
+   gap: 4px;
+}
+
+.stravon-screen__person b,
+.stravon-screen__person small {
+   display: block;
+   height: 4px;
+   border-radius: 4px;
+   background: #b9b8ae;
+}
+
+.stravon-screen__person b {
+   width: 70%;
+}
+
+.stravon-screen__person small {
+   width: 94%;
+   height: 3px;
+   background: #e6e5df;
+}
+
+.stravon-screen__person em {
+   color: #73736b;
+   font-size: 6px;
+   font-style: normal;
+}
+
+.stravon-screen__title>b {
+   display: inline-flex;
+   align-items: center;
+   gap: 6px;
+}
+
+.stravon-screen__title>b i {
+   width: 13px;
+   height: 13px;
+   border-radius: 4px;
+   background: var(--stravon-gold);
+}
+
+.stravon-screen__metrics {
+   display: grid;
+   grid-template-columns: repeat(3, 1fr);
+   gap: 6px;
+}
+
+.stravon-screen__metrics>b {
+   padding: 7px;
+   border: 1px solid #eeece3;
+   border-radius: 6px;
+   font-size: 12px;
+}
+
+.stravon-screen__metrics small {
+   display: block;
+   margin-top: 4px;
+   color: #77786f;
+   font-size: 6px;
+   font-weight: 400;
+}
+
+.stravon-screen__lower {
+   display: grid;
+   grid-template-columns: 1.3fr 1fr;
+   gap: 7px;
+   margin-top: 7px;
+}
+
+.stravon-screen__chart,
+.stravon-screen__tasks {
+   min-height: 63px;
+   padding: 7px;
+   border: 1px solid #eeece3;
+   border-radius: 6px;
+}
+
+.stravon-screen__chart small,
+.stravon-screen__tasks small {
+   display: block;
+   margin-bottom: 6px;
+   color: #5d5e56;
+   font-size: 6px;
+   font-weight: 700;
+}
+
+.stravon-screen__chart svg {
+   width: 100%;
+   height: 35px;
+   background: repeating-linear-gradient(to bottom, transparent 0 9px, #f0eee5 9px 10px);
+}
+
+.stravon-screen__tasks i {
+   display: block;
+   margin: 4px 0;
+   color: #696a62;
+   font-size: 6px;
+   font-style: normal;
+}
+
+.stravon-screen__kpis {
+   display: grid;
+   grid-template-columns: 1fr 1fr;
+   gap: 7px;
+}
+
+.stravon-screen__kpis b {
+   padding: 7px;
+   border-radius: 6px;
+   background: #f7f5ed;
+   font-size: 12px;
+}
+
+.stravon-screen__kpis small {
+   display: block;
+   margin-top: 3px;
+   color: #6a6b63;
+   font-size: 6px;
+   font-weight: 400;
+}
+
+.stravon-screen__bars {
+   display: flex;
+   height: 57px;
+   align-items: end;
+   justify-content: space-around;
+   gap: 6px;
+   margin-top: 8px;
+   padding: 0 7px;
+   border-bottom: 1px solid #e4e1d7;
+   background: repeating-linear-gradient(to bottom, transparent 0 14px, #eeece4 14px 15px);
+}
+
+.stravon-screen__bars i {
+   width: 12px;
+   border-radius: 3px 3px 0 0;
+   background: #dfcd71;
+}
+
+.stravon-screen__bars i:nth-child(3n) {
+   background: #7e9880;
+}
+
+.stravon-visual__caption {
+   position: absolute;
+   right: 9%;
+   bottom: -2%;
+   margin: 0;
+   color: #76766d;
+   font-size: 8px;
+   font-weight: 700;
+   letter-spacing: .12em;
+   text-transform: uppercase;
+   white-space: nowrap;
+}
+
+/* Desktop: 1024px+ — copy left, system cards right. */
+@media (min-width: 1024px) {
+   .stravon-hero {
+      grid-template-columns: minmax(0, 1.03fr) minmax(0, .97fr);
+   }
+
+   .stravon-landing::before,
+   .stravon-landing::after {
+      width: 52%;
+   }
+}
+
+/* Tablet: 641–1023px — copy first, collage centered underneath. */
+@media (min-width: 641px) and (max-width: 1023px) {
+   .stravon-hero {
+      width: min(86%, 740px);
+      grid-template-columns: minmax(0, 1fr);
+      gap: 28px;
+      padding: 54px 0 64px;
+   }
+
+   .stravon-hero__copy {
+      max-width: 700px;
+   }
+
+   .stravon-hero__copy h1 {
+      max-width: 690px;
+      font-size: clamp(32px, 5vw, 44px);
+   }
+
+   .stravon-hero__description {
+      max-width: 670px;
+      font-size: 16px;
+   }
+
+   .stravon-visual {
+      width: min(100%, 630px);
+      justify-self: center;
+   }
+
+   .stravon-landing::before,
+   .stravon-landing::after {
+      width: 78%;
+   }
+
+   .stravon-landing::before {
+      opacity: .20;
+   }
+
+   .stravon-landing::after {
+      opacity: .12;
+   }
+}
+
+/* Mobile: 640px and below — compact copy, then smaller overlapping previews. */
+@media (max-width: 640px) {
+   .stravon-hero {
+      width: 88%;
+      grid-template-columns: minmax(0, 1fr);
+      gap: 18px;
+      padding: 48px 0 42px;
+   }
+
+   .stravon-eyebrow {
+      margin-bottom: 13px;
+      font-size: 9px;
+      letter-spacing: .1em;
+   }
+
+   .stravon-hero__copy h1 {
+      margin-bottom: 13px;
+      font-size: clamp(28px, 8vw, 36px);
+   }
+
+   .stravon-hero__description {
+      font-size: 14px;
+      line-height: 1.55;
+   }
+
+   .stravon-visual {
+      width: 100%;
+      max-width: 430px;
+      aspect-ratio: .95 / 1;
+      margin: 5px auto 0;
+   }
+
+   .stravon-system-card--crm {
+      top: 2%;
+      left: 0;
+      width: 55%;
+      transform: rotate(-4deg);
+   }
+
+   .stravon-system-card--operations {
+      top: 18%;
+      left: 14%;
+      width: 70%;
+      transform: rotate(1deg);
+   }
+
+   .stravon-system-card--analytics {
+      top: 58%;
+      right: 0;
+      bottom: auto;
+      width: 57%;
+      transform: rotate(3deg);
+   }
+
+   .stravon-system-card__chrome {
+      height: 24px;
+      gap: 4px;
+      padding-inline: 7px;
+   }
+
+   .stravon-system-card__chrome>i {
+      width: 5px;
+      height: 5px;
+   }
+
+   .stravon-system-card__chrome>span:first-of-type {
+      font-size: 6px;
+   }
+
+   .stravon-system-card__play {
+      width: 20px;
+      height: 20px;
+      font-size: 7px;
+   }
+
+   .stravon-system-card__content {
+      min-height: 100px;
+   }
+
+   .stravon-system-card__content>img,
+   .stravon-system-card__content>video {
+      min-height: 110px;
+   }
+
+   .stravon-system-card--operations .stravon-system-card__content>img,
+   .stravon-system-card--operations .stravon-system-card__content>video {
+      min-height: 152px;
+   }
+
+   .stravon-screen {
+      padding: 8px;
+   }
+
+   .stravon-screen__title {
+      margin-bottom: 6px;
+      font-size: 8px;
+   }
+
+   .stravon-screen__person {
+      padding: 4px 0;
+   }
+
+   .stravon-screen__metrics>b,
+   .stravon-screen__kpis b {
+      padding: 5px;
+      font-size: 10px;
+   }
+
+   .stravon-screen__lower {
+      gap: 4px;
+   }
+
+   .stravon-screen__chart,
+   .stravon-screen__tasks {
+      min-height: 49px;
+      padding: 5px;
+   }
+
+   .stravon-screen__chart svg {
+      height: 25px;
+   }
+
+   .stravon-screen__bars {
+      height: 43px;
+      margin-top: 6px;
+   }
+
+   .stravon-visual__badge {
+      top: 10%;
+      right: 0;
+      padding: 6px 8px;
+      font-size: 7px;
+   }
+
+   .stravon-visual__caption {
+      right: 4%;
+      bottom: -2%;
+      font-size: 6px;
+   }
+
+   .stravon-landing::before,
+   .stravon-landing::after {
+      width: 100%;
+   }
+
+   .stravon-landing::before {
+      opacity: .18;
+   }
+
+   .stravon-landing::after {
+      opacity: .11;
+   }
+}

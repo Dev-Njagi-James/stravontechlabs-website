@@ -31,10 +31,7 @@ export default function CtaSection({
           we&apos;ll help you design the technology around your goals.
         </p>
         <div className="cta-actions">
-          <a className="cta-button" href="#start" onClick={onStartProject}>
-            Start Your Project <span aria-hidden="true">→</span>
-          </a>
-          <a className="cta-button" href="#contact" onClick={onContactTeam}>
+          <a className="cta-button" href="/about" onClick={onContactTeam}>
             Talk to Our Team <span aria-hidden="true">→</span>
           </a>
         </div>

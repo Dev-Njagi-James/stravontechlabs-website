@@ -35,7 +35,7 @@
    font-size: 28px;
    font-weight: 700;
    line-height: 1.13;
-   letter-spacing: 0.05px;
+   letter-spacing: -0.7px;
    font-family: var(--font-geist-sans);
 }
 
@@ -100,14 +100,59 @@
    font-family: var(--font-inter);
 }
 
-.project-card a {
-   width: fit-content;
+.project-card__actions {
+   display: flex;
+   gap: 8px;
    margin-top: auto;
+}
+
+.project-card__btn {
+   display: inline-flex;
+   align-items: center;
+   justify-content: center;
+   min-height: 34px;
+   border-radius: 4px;
+   color: black;
    font-family: var(--font-geist-sans);
-   font-size: 12px;
+   font-size: 14px;
    font-weight: 500;
    line-height: 16px;
-   text-underline-offset: 2px;
+   text-decoration: none;
+}
+
+.project-card__btn:hover {
+   filter: brightness(1.15);
+}
+
+.project-card__btn:focus-visible {
+   outline: 2px solid var(--primary);
+   outline-offset: 2px;
+   color:var(--background);
+}
+
+.project-card__btn--primary {
+   flex: 1;
+   padding: 8px 12px;
+   background: var(--secondary);
+}
+
+.project-card__btn--icon {
+   flex: none;
+   width: 34px;
+   color: var(--background);
+}
+
+.project-card__btn--icon i {
+   font-size: 20px;
+   line-height: 1;
+}
+
+.project-card__btn--call {
+   background: #0b2545;
+}
+
+.project-card__btn--whatsapp {
+   background: #1f7a4d;
 }
 
 /* Testimonials */

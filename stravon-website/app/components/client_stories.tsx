@@ -7,8 +7,19 @@ interface Project {
   description: string;
   image: string;
   alt: string;
-  href: string;
+  /** Live site. Takes priority over repoUrl when both are set. */
+  siteUrl?: string;
+  /** GitHub repository. Used when there is no live site. */
+  repoUrl?: string;
 }
+
+/** Contact number in international format, digits only (no + or spaces). */
+const CONTACT_NUMBER = "254105140326";
+
+const whatsappLink = (title: string): string =>
+  `https://wa.me/${CONTACT_NUMBER}?text=${encodeURIComponent(
+    `Hello Stravon Tech Labs, I saw ${title} on your site and I'd like something similar. Can we talk?`,
+  )}`;
 
 interface Testimonial {
   name: string;
@@ -23,7 +34,7 @@ const projects: Project[] = [
       "Rental marketplace connecting tenants and property owners. Users can list properties, tenants can browse listings and contact renters directly. Built with Next.js and React, backed by PostgreSQL.",
     image: "/pedu.png",
     alt: "Pedu Rentals website preview",
-    href: "/projects/pedu-rentals",
+    siteUrl: "https://www.pedurentals.com",
   },
   {
     title: "GSSMS — Stock Management System",
@@ -31,15 +42,15 @@ const projects: Project[] = [
       "Stock management system that tracks inventory records and automates all key business functions. Built with Next.js and React, backed by PostgreSQL.",
     image: "/GGSM.png",
     alt: "GSSMS stock management preview",
-    href: "/projects/gssms",
+    repoUrl: "https://github.com/YOUR-USERNAME/gssms",
   },
   {
     title: "ROMIS — Repository and Order Management System",
     description:
-      "Rental marketplace connecting tenants and property owners. Users can list properties, tenants can browse listings and contact renters directly. Built with Next.js and React, backed by PostgreSQL.",
+      "Repository and order management system for a hospitality service. Customers browse meals by category, add them to a cart and place orders, while staff track and manage orders in one place. Built with Next.js and React, backed by PostgreSQL.",
     image: "/ROMIS.jpg",
     alt: "ROMIS preview",
-    href: "/projects/romis",
+    repoUrl: "https://github.com/YOUR-USERNAME/gssms",
   },
 ];
 
@@ -70,7 +81,19 @@ const testimonials: Testimonial[] = [
   },
 ];
 
-function ProjectCard({ title, description, image, alt, href }: Project) {
+function ProjectCard({
+  title,
+  description,
+  image,
+  alt,
+  siteUrl,
+  repoUrl,
+}: Project) {
+  const primary = siteUrl
+    ? { href: siteUrl, label: "View Site" }
+    : repoUrl
+      ? { href: repoUrl, label: "View GitHub" }
+      : null;
   return (
     <article className="project-card">
       <div className="project-card__preview">
@@ -84,9 +107,31 @@ function ProjectCard({ title, description, image, alt, href }: Project) {
       <div className="project-card__content">
         <h3>{title}</h3>
         <p>{description}</p>
-        <Link href={href}>
-          Learn More <span aria-hidden="true">→</span>
-        </Link>
+        <div className="project-card__actions">
+          {primary && (
+            <a
+              className="project-card__btn project-card__btn--primary"
+              href={primary.href}
+              target="_blank"
+              rel="noopener noreferrer">
+              {primary.label}
+            </a>
+          )}
+          <a
+            className="project-card__btn project-card__btn--icon project-card__btn--call"
+            href={`tel:+${CONTACT_NUMBER}`}
+            aria-label={`Call Stravon Tech Labs about ${title}`}>
+            <i className="hgi hgi-stroke hgi-call-02" aria-hidden="true" />
+          </a>
+          <a
+           className="project-card__btn project-card__btn--icon project-card__btn--whatsapp"
+            href={whatsappLink(title)}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label={`Chat on WhatsApp about ${title}`}>
+            <i className="hgi hgi-stroke hgi-whatsapp" aria-hidden="true" />
+          </a>
+        </div>
       </div>
     </article>
   );

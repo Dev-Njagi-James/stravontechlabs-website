@@ -53,8 +53,8 @@ const defaultGroups: FooterGroup[] = [
     title: "Quick Links",
     links: [
       { label: "Services", href: "/" },
-      { label: "Pricing", href: "#pricing" },
-      { label: "About", href: "#about" },
+      { label: "Pricing", href: "/pricing" },
+      { label: "About", href: "/about" },
       { label: "Contact Us", href: "#contact" },
     ],
   },
