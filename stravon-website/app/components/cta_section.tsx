@@ -8,7 +8,6 @@ type CtaSectionProps = {
 };
 
 export default function CtaSection({
-  onStartProject,
   onContactTeam,
   className = "",
 }: CtaSectionProps) {
