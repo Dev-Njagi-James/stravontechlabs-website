@@ -1,7 +1,6 @@
 import "./css/footer.css";
 import Image from "next/image";
 
-
 const iconClasses = {
   email: "hgi-mail-at-sign-01",
   pricing: "hgi-dollar-circle",
@@ -61,7 +60,11 @@ const defaultGroups: FooterGroup[] = [
   {
     title: "Contact Us",
     links: [
-      { label: "midnightalpha031@gmail.com", href: "mailto:midnightalpha031@gmail.com", icon: "email" },
+      {
+        label: "midnightalpha031@gmail.com",
+        href: "mailto:midnightalpha031@gmail.com",
+        icon: "email",
+      },
       { label: "Pricing", href: "#pricing", icon: "pricing" },
       { label: "+254 115 338 035", href: "tel:+2547115338036", icon: "phone" },
     ],
@@ -83,7 +86,12 @@ export default function Footer({
   socialLinks = [
     { label: "TikTok", href: "#", icon: "tiktok" },
     { label: "Facebook", href: "#", icon: "facebook" },
-    { label: "WhatsApp", href: "#", icon: "whatsapp" },
+    {
+      label: "WhatsApp",
+      href: "https://wa.me/254105140326?text=Hello%20Stravon%20Tech%20Labs%2C%20I%27d%20like%20to%20get%20in%20touch.",
+      icon: "whatsapp",
+    },
+
     { label: "Instagram", href: "#", icon: "instagram" },
   ],
   logo = "/logo.png",
@@ -98,10 +106,10 @@ export default function Footer({
                 links: group.links.map((link) =>
                   link.icon === "email"
                     ? { ...link, label: email, href: `mailto:${email}` }
-                    : link
+                    : link,
                 ),
               }
-            : group
+            : group,
         )
       : groups;
 
@@ -131,7 +139,14 @@ export default function Footer({
           </a>
           <nav className="footer-socials" aria-label="Social media">
             {socialLinks.map((item) => (
-              <a key={item.label} href={item.href} aria-label={item.label}>
+              <a
+                key={item.label}
+                href={item.href}
+                aria-label={item.label}
+                target={item.label === "WhatsApp" ? "_blank" : undefined}
+                rel={
+                  item.label === "WhatsApp" ? "noopener noreferrer" : undefined
+                }>
                 <Icon name={item.icon} />
               </a>
             ))}
